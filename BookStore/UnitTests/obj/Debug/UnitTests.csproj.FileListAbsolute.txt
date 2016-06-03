@@ -94,3 +94,5 @@ d:\Dima\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\Moq.xml
 d:\Dima\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\Ninject.xml
 d:\Dima\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\Ninject.Web.Common.xml
 d:\Dima\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\Ninject.Web.Mvc.xml
+d:\Dima\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\EntityFramework.dll
+d:\Dima\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\EntityFramework.xml
