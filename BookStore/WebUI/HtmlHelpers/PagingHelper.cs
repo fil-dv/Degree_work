@@ -23,7 +23,7 @@ namespace WebUI.HtmlHelpers
                 {
                     tag.AddCssClass("selected");
                     tag.AddCssClass("btn-primary");
-                    tag.Attributes.Add("style", "color:red");
+                    //tag.Attributes.Add("style", "color:red");
                 }
                 tag.AddCssClass("btn btn-default");
                 
