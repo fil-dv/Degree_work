@@ -1,4 +1,5 @@
 ﻿using Domain.Abstract;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,17 +19,19 @@ namespace WebUI.Controllers
             repository = repo;
         }
 
-        public ViewResult List(int page = 1)
+        public ViewResult List(string currentGenre, int page = 1)
         {
-            //return View(repository.Books.
-            //            OrderBy(b=>b.BookID).
-            //            Skip((page-1)*pageSize).
-            //            Take(pageSize));
+            IEnumerable<Book> Books = repository.Books.Where(b => b.Genre == null || b.Genre == currentGenre).
+                                        OrderBy(b => b.BookID).
+                                        Skip((page - 1) * pageSize).
+                                        Take(pageSize);
+
 
             BooksListViewModel model = new BooksListViewModel
             {
 
-                Books = repository.Books.OrderBy(b => b.BookID).
+                Books = repository.Books.Where(b => b.Genre == null || b.Genre == currentGenre).
+                                        OrderBy(b => b.BookID).
                                         Skip((page - 1) * pageSize).
                                         Take(pageSize),
                 PagingInfo = new PagingInfo {
@@ -36,7 +39,8 @@ namespace WebUI.Controllers
                     CurrentPage = page,
                     ItemPerPage = pageSize,
                     TotalItems = repository.Books.Count()
-                }
+                },
+                CurrentGenre = currentGenre
             };
 
             return View(model);
