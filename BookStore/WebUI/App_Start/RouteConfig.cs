@@ -11,35 +11,66 @@ namespace WebUI
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            //routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            //routes.MapRoute(
+            //    name: "Default",
+            //    url: "{controller}/{action}",
+            //    defaults: new { controller = "Books", action = "List", genre = (string)null, page = 1}
+            //);
+
+            //routes.MapRoute(
+            //    name: null,
+            //    url: "Page{page}",
+            //    defaults: new { controller = "Books", action = "List", genre  = (string)null},
+            //    constraints: new {page = @"\d+"}                
+            //);
+
+            //routes.MapRoute(
+            //    name: null,
+            //    url: "{genre}",
+            //    defaults: new { controller = "Books", action = "List", page = 1 }                
+            //);
+
+            //routes.MapRoute(
+            //    name: null,
+            //    url: "{genre}/Page{page}",
+            //    defaults: new { controller = "Books", action = "List" },
+            //    constraints: new { page = @"\d+" }
+            //);
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
-                url: "",
-                defaults: new { controller = "Books", action = "List", genre = (string)null, page = 1}
+                null,
+                "",
+                new { controller = "Books", action = "List", genre = (string)null, page = 1 }
             );
 
             routes.MapRoute(
                 name: null,
                 url: "Page{page}",
-                defaults: new { controller = "Books", action = "List", genre  = (string)null},
-                constraints: new {page = @"\d+"}                
-            );
-
-            routes.MapRoute(
-                name: null,
-                url: "{genre}",
-                defaults: new { controller = "Books", action = "List", page = 1 }                
-            );
-
-            routes.MapRoute(
-                name: null,
-                url: "{genre}/Page{page}",
-                defaults: new { controller = "Books", action = "List" },
+                defaults: new { controller = "Books", action = "List", genre = (string)null },
                 constraints: new { page = @"\d+" }
             );
 
-            
+            routes.MapRoute(
+                null,
+                "{genre}",
+                new { controller = "Books", action = "List", page = 1 }
+            );
+
+            routes.MapRoute(
+                null,
+                "{genre}/Page{page}",
+                new { controller = "Books", action = "List" },
+                new { page = @"\d+" }
+            );
+
+            routes.MapRoute(
+                null,
+                "{controller}/{action}"
+            );
         }
     }
 }
