@@ -35,7 +35,6 @@ D:\Дима\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\UnitTests.dll
 D:\Дима\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\UnitTests.pdb
 D:\Дима\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\Castle.Core.dll
 D:\Дима\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\Domain.dll
-D:\Дима\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 D:\Дима\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\Microsoft.Web.Infrastructure.dll
 D:\Дима\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\Moq.dll
 D:\Дима\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\Ninject.dll

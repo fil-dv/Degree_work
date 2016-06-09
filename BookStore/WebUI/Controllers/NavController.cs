@@ -9,18 +9,18 @@ namespace WebUI.Controllers
 {
     public class NavController : Controller
     {
-        IBookRepository repository;
+        IBookRepository _repository;
 
         public NavController(IBookRepository repo)
         {
-            repository = repo;
+            _repository = repo;
         }
 
         // GET: Nav
         public PartialViewResult Menu(string genre = null)
         {
             ViewBag.SelectedGenre = genre;
-            IEnumerable<string> genres = repository.Books.
+            IEnumerable<string> genres = _repository.Books.
                                                     Select(book => book.Genre).
                                                     Distinct().
                                                     OrderBy(x => x);
