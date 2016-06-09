@@ -16,6 +16,25 @@ namespace UnitTests
     [TestClass]
     public class UnitTest1
     {
+        Mock<IBookRepository> GetData()
+        {
+            Mock<IBookRepository> mock = new Mock<IBookRepository>();
+            mock.Setup(m => m.Books).Returns(new List<Book>
+            {
+                new Book {BookID = 1, Name = "книга 1", Author = "автор 1", Price = 100, Genre = "Genre 1"},
+                new Book {BookID = 2, Name = "книга 2", Author = "автор 2", Price = 200, Genre = "Genre 2"},
+                new Book {BookID = 3, Name = "книга 3", Author = "автор 3", Price = 300, Genre = "Genre 3"},
+                new Book {BookID = 4, Name = "книга 4", Author = "автор 4", Price = 400, Genre = "Genre 7"},
+                new Book {BookID = 5, Name = "книга 5", Author = "автор 5", Price = 500, Genre = "Genre 3"},
+                new Book {BookID = 6, Name = "книга 6", Author = "автор 6", Price = 600, Genre = "Genre 7"},
+                new Book {BookID = 7, Name = "книга 7", Author = "автор 7", Price = 700, Genre = "Genre 7"},
+                new Book {BookID = 8, Name = "книга 8", Author = "автор 8", Price = 800, Genre = "Genre 3"},
+                new Book {BookID = 9, Name = "книга 9", Author = "автор 9", Price = 900, Genre = "Genre 3"}
+            });
+            return mock;
+        }
+
+
         [TestMethod]
         public void Can_Paginate()
         {
@@ -45,30 +64,30 @@ namespace UnitTests
             Assert.AreEqual(books[2].Name, "книга 9");
         }
 
-        [TestMethod]
-        public void Can_Generate_Page_Links()
-        {
-            //Организация, имитируем контекст
-            HtmlHelper myHelper = null;
+        //[TestMethod]
+        //public void Can_Generate_Page_Links()
+        //{
+        //    //Организация, имитируем контекст
+        //    HtmlHelper myHelper = null;
 
-            PagingInfo pagingInfo = new PagingInfo
-            {
-                CurrentPage = 2,
-                TotalItems = 28,
-                ItemPerPage = 10
-            };
+        //    PagingInfo pagingInfo = new PagingInfo
+        //    {
+        //        CurrentPage = 2,
+        //        TotalItems = 28,
+        //        ItemPerPage = 10
+        //    };
             
-            Func<int, string> PageUrlDelegat = i => "Page" + i;
+        //    Func<int, string> PageUrlDelegat = i => "Page" + i;
 
-            //непосредственный вызов
-            MvcHtmlString result = myHelper.PageLinks(pagingInfo, PageUrlDelegat);
+        //    //непосредственный вызов
+        //    MvcHtmlString result = myHelper.PageLinks(pagingInfo, PageUrlDelegat);
 
-            //тестим соответствует ли ожидаемое тому, что получили
-            Assert.AreEqual(@"<a class=""btn btn-default"" href=""Page1"">1</a>"
-                + @"<a class=""btn btn-default btn-primary selected"" href=""Page2"">2</a>"
-                + @"<a class=""btn btn-default"" href=""Page3"">3</a>",
-                result.ToString());
-        }
+        //    //тестим соответствует ли ожидаемое тому, что получили
+        //    Assert.AreEqual(@"<a class=""btn btn-default"" href=""Page1"">1</a>"
+        //        + @"<a class=""btn btn-default btn-primary selected"" href=""Page2"">2</a>"
+        //        + @"<a class=""btn btn-default"" href=""Page3"">3</a>",
+        //        result.ToString());
+        //}
 
         [TestMethod]
         public void Can_Send_Pagination_View_Model()
@@ -195,6 +214,30 @@ namespace UnitTests
             //утверждения
 
             Assert.AreEqual(result, "Genre 3");
+        }
+
+        [TestMethod]
+        public void Can_Get_Count_TotalItems_For_Any_Genre()
+        {
+            // Организация (arrange)
+            Mock mock = GetData();
+
+            BooksController controller = new BooksController((IBookRepository)mock.Object);
+
+            // Действие (act)
+            int result1 = ((BooksListViewModel)controller.List("Genre 1").Model).PagingInfo.TotalItems;
+            int result2 = ((BooksListViewModel)controller.List("Genre 2").Model).PagingInfo.TotalItems;
+            int result3 = ((BooksListViewModel)controller.List("Genre 3").Model).PagingInfo.TotalItems;
+            int result7 = ((BooksListViewModel)controller.List("Genre 7").Model).PagingInfo.TotalItems;
+            int resultAll = ((BooksListViewModel)controller.List(null).Model).PagingInfo.TotalItems;
+
+            //утверждения
+
+            Assert.AreEqual(result1, 1);
+            Assert.AreEqual(result2, 1);
+            Assert.AreEqual(result3, 4);
+            Assert.AreEqual(result7, 3);
+            Assert.AreEqual(resultAll, 9);
         }
 
     }
