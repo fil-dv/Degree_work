@@ -37,7 +37,7 @@ namespace WebUI.Controllers
             return cart;
         }
         
-        public RedirectToRouteResult AddToCart(int bookID, string returnUrl)
+        public RedirectToRouteResult AddToСart(int bookID, string returnUrl)
         {
             Book book = _repository.Books.FirstOrDefault(b => b.BookID == bookID);
 
@@ -46,7 +46,7 @@ namespace WebUI.Controllers
                 GetCart().AddItem(book, 1);
             }
 
-            return RedirectToAction("Index", returnUrl);
+            return RedirectToAction("Index", new { returnUrl });
         }
 
         public RedirectToRouteResult RemoveFromCart(int bookID, string returnUrl)

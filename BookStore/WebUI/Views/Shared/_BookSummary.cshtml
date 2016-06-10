@@ -13,10 +13,10 @@
         <div class="col-xs-2">
             <h3>
                 <strong id="price" class="pull-right label label-primary">
-                    @Model.Price.ToString("# грн.")
+                    @Model.Price.ToString("#.## грн.")
                 </strong>
             </h3>
-            @using (Html.BeginForm("AddToСart", "Kart"))
+            @using (Html.BeginForm("AddToСart", "Cart"))
             {
                 <div class="pull-right">
                     @Html.HiddenFor(x=>x.BookID)

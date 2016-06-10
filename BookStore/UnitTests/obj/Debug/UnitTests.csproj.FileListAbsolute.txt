@@ -1,6 +1,5 @@
 D:\Dima\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\UnitTests.dll
 D:\Dima\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\UnitTests.pdb
-D:\Dima\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 D:\Dima\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\Microsoft.Web.Infrastructure.dll
 D:\Dima\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\System.Web.Helpers.dll
 D:\Dima\!Шаг\Degree_work\BookStore\UnitTests\bin\Debug\System.Web.Mvc.dll

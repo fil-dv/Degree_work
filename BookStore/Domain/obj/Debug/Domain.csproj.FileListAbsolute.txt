@@ -13,7 +13,6 @@ D:\Dima\!Шаг\Degree_work\BookStore\Domain\bin\Debug\System.Web.Razor.xml
 D:\Dima\!Шаг\Degree_work\BookStore\Domain\bin\Debug\System.Web.WebPages.xml
 D:\Dima\!Шаг\Degree_work\BookStore\Domain\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\Dima\!Шаг\Degree_work\BookStore\Domain\bin\Debug\System.Web.WebPages.Razor.xml
-D:\Dima\!Шаг\Degree_work\BookStore\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
 D:\Dima\!Шаг\Degree_work\BookStore\Domain\obj\Debug\Domain.dll
 D:\Dima\!Шаг\Degree_work\BookStore\Domain\obj\Debug\Domain.pdb
 D:\Дима\!Шаг\Degree_work\BookStore\Domain\bin\Debug\Domain.dll
@@ -57,3 +56,8 @@ D:\Дима\!Шаг\Degree_work\BookStore\Domain\bin\Debug\EntityFramework.dll
 D:\Дима\!Шаг\Degree_work\BookStore\Domain\bin\Debug\EntityFramework.SqlServer.dll
 D:\Дима\!Шаг\Degree_work\BookStore\Domain\bin\Debug\EntityFramework.xml
 D:\Дима\!Шаг\Degree_work\BookStore\Domain\bin\Debug\EntityFramework.SqlServer.xml
+D:\Dima\!Шаг\Degree_work\BookStore\Domain\bin\Debug\Domain.dll.config
+D:\Dima\!Шаг\Degree_work\BookStore\Domain\bin\Debug\EntityFramework.dll
+D:\Dima\!Шаг\Degree_work\BookStore\Domain\bin\Debug\EntityFramework.SqlServer.dll
+D:\Dima\!Шаг\Degree_work\BookStore\Domain\bin\Debug\EntityFramework.xml
+D:\Dima\!Шаг\Degree_work\BookStore\Domain\bin\Debug\EntityFramework.SqlServer.xml
