@@ -4,7 +4,7 @@
     ViewBag.Title = "Ваша корзина";
 }
 
-<table class="table">
+<table id="cartTable" class="table">
     <thead>
         <tr>
             <th class="text-center">Количество</th>
@@ -20,14 +20,23 @@
                 <td class="text-center">@line.Quantity</td>
                 <td class="text-left">@line.Book.Name - @line.Book.Author</td>
                 <td class="text-right">@line.Book.Price.ToString("#.## грн.")</td>
-                <td class="text-right">@((line.Quantity * line.Book.Price).ToString("#.## грн."))</td">
+                <td class="text-right">@((line.Quantity * line.Book.Price).ToString("#.## грн."))</td>
+                <td>
+                    @using(@Html.BeginForm("RemoveFromCart", "Cart"))
+                    {
+                        @Html.Hidden("BookID", line.Book.BookID);
+                        @Html.HiddenFor(x=>x.ReturnUrl)
+                        <input class="btn btn-sm btn-warning" type="submit" value="Удалить" />
+                    }
+                </td>
+
             </tr>
         }
     </tbody>
     <tfoot>
         <tr>
             <td colspan="3" class="text-right">Итого: </td>
-            <td class="text-right">@Model.Cart.ComputeTotalValue().ToString()</td>
+            <td class="text-right">@Model.Cart.ComputeTotalValue().ToString("#.## грн.")</td>
         </tr>
     </tfoot>
 
@@ -35,5 +44,6 @@
 
 <div class="text-center">
     <a class="btn btn-primary" href="@Model.ReturnUrl">Продолжить покупки</a> 
+    @Html.ActionLink("Оформить заказ", "CheckOut", null, new { @class="btn btn-primary" })
 </div>
 
